@@ -1,16 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- ~ Copyright 2016 Microprofile.io ~ ~ Licensed under the Apache License,
-	Version 2.0 (the "License"); ~ you may not use this file except in compliance
-	with the License. ~ You may obtain a copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
-	~ ~ Unless required by applicable law or agreed to in writing, software ~
-	distributed under the License is distributed on an "AS IS" BASIS, ~ WITHOUT
-	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. ~ See the
-	License for the specific language governing permissions and ~ limitations
-	under the License. -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-	<modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
 	<groupId>sample.microclimate</groupId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -21,7 +10,7 @@
 	<parent>
 			<groupId>net.wasdev.wlp.maven.parent</groupId>
 			<artifactId>liberty-maven-app-parent</artifactId>
-			<version>2.1.2</version>
+			<version>2.1</version>
 	</parent>
 
 	<properties>
@@ -61,12 +50,20 @@
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
+      <repository>
+        <id>oss.sonatype.org-snapshot</id>
+        <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+        <releases>
+          <enabled>false</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
 	</repositories>
 
 	<dependencies>
-		<!-- <dependency> <groupId>net.wasdev.wlp.starters.microprofile</groupId>
-			<artifactId>provided-pom</artifactId> <version>0.0.1-SNAPSHOT</version> <type>pom</type>
-			<scope>provided</scope> </dependency> -->
+		<!-- 
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
@@ -79,18 +76,18 @@
 			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
-	  	<dependency>
-  			<groupId>javax.ws.rs</groupId>
-  			<artifactId>javax.ws.rs-api</artifactId>
-  			<version>2.0</version>
-  			<scope>provided</scope>
-  		</dependency>
         <dependency>
             <groupId>javax.json</groupId>
             <artifactId>javax.json-api</artifactId>
             <version>1.0</version>
-        </dependency>
-        <dependency>
+        </dependency>-->
+ 	  	<dependency>
+  			<groupId>javax.ws.rs</groupId>
+  			<artifactId>javax.ws.rs-api</artifactId>
+  			<version>2.0.1</version>
+  			<scope>provided</scope>
+  		</dependency>
+       <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -99,7 +96,7 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-client</artifactId>
-			<version>3.1.1</version>
+			<version>3.1.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -108,8 +105,48 @@
 			<version>1.0.4</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.ibm.runtimetools</groupId>
+            <artifactId>javametrics-agent</artifactId>
+            <version>[1.2,2.0)</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.runtimetools</groupId>
+            <artifactId>javametrics-dash</artifactId>
+            <version>[1.2,2.0)</version>
+            <scope>provided</scope>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.runtimetools</groupId>
+            <artifactId>javametrics-rest</artifactId>
+            <version>[1.2,2.0)</version>
+            <scope>provided</scope>
+            <type>war</type>
+        </dependency>
 		<!-- microprofile-1.2 -->
-		<dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.websphere.appserver.api</groupId>
+            <artifactId>com.ibm.websphere.appserver.api.jaxrs20</artifactId>
+            <version>1.0.18</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.websphere.appserver.api</groupId>
+            <artifactId>com.ibm.websphere.appserver.api.json</artifactId>
+            <version>1.0.18</version>
+            <scope>provided</scope>
+        </dependency>
+
+<!--		<dependency>
 			<groupId>org.eclipse.microprofile.config</groupId>
 			<artifactId>microprofile-config-api</artifactId>
 			<version>1.1</version>
@@ -133,7 +170,7 @@
 			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>com.github.wasdev.microprofile-conference</groupId>
 			<artifactId>demo-bootstrap</artifactId>
@@ -146,7 +183,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>2.6</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<packagingExcludes>pom.xml</packagingExcludes>
@@ -156,7 +193,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
+				<version>2.18.1</version>
 				<configuration>
 					<skipTests>true</skipTests>
 				</configuration>
@@ -173,11 +210,67 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- Plugin to run functional tests -->
+            <!-- Configure javametrics monitoring -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-javametrics-dash</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                          <stripVersion>true</stripVersion>
+                          <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/dropins</outputDirectory>
+                          <includeArtifactIds>javametrics-dash</includeArtifactIds>
+                      </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-javametrics-rest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                          <stripVersion>true</stripVersion>
+                          <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/dropins</outputDirectory>
+                          <includeArtifactIds>javametrics-rest</includeArtifactIds>
+                      </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-javametrics-agent</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                          <stripVersion>true</stripVersion>
+                          <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/resources/</outputDirectory>
+                          <includeArtifactIds>javametrics-agent</includeArtifactIds>
+                      </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-javametrics-asm</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                          <outputDirectory>${project.build.directory}/liberty/wlp/usr/servers/defaultServer/resources/asm</outputDirectory>
+                          <includeGroupIds>org.ow2.asm</includeGroupIds>
+                          <includeArtifactIds>asm,asm-commons</includeArtifactIds>
+                      </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            			<!-- Plugin to run functional tests -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.19.1</version>
+				<version>2.18.1</version>
 				<executions>
 					<execution>
 						<phase>integration-test</phase>
@@ -203,7 +296,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<skipTests>true</skipTests>
 					<summaryFile>${project.build.directory}/test-reports/it/failsafe-summary.xml</summaryFile>
 					<reportsDirectory>${project.build.directory}/test-reports/it</reportsDirectory>
 				</configuration>
@@ -211,7 +303,14 @@
 		</plugins>
 	</build>
 <profiles>
-	<profile>
+        <profile>
+            <id>runnable</id>
+            <properties>
+                <package.file>${project.build.directory}/${app.name}.jar</package.file>
+                <packaging.type>runnable</packaging.type>
+            </properties>
+        </profile>
+ 	<profile>
 			<id>liberty</id>
 			<activation>
 					<property>
@@ -221,7 +320,6 @@
 			</activation>
 			<build>
 					<plugins>
-							<!-- Default enablement of liberty-maven plugin -->
 							<plugin>
 									<groupId>net.wasdev.wlp.maven.plugins</groupId>
 									<artifactId>liberty-maven-plugin</artifactId>
@@ -229,7 +327,6 @@
 									<extensions>true</extensions>
 									<configuration>
 											<looseApplication>false</looseApplication>
-											<!--appsDirectory>apps</appsDirectory-->
 											<assemblyArtifact>
 													<groupId>com.ibm.websphere.appserver.runtime</groupId>
 													<artifactId>wlp-webProfile7</artifactId>
@@ -282,7 +379,7 @@
 							<plugin>
 									<groupId>net.wasdev.wlp.maven.plugins</groupId>
 									<artifactId>liberty-maven-plugin</artifactId>
-									<version>2.1.2</version>
+									<version>2.1.1</version>
 									<extensions>true</extensions>
 									<configuration>
 											<looseApplication>true</looseApplication>

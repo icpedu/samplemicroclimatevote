@@ -2,10 +2,10 @@
 version : 0.0.3
 
 # The container name used for the run container
-container-name-run : "sample-microservice-vote"
+container-name-run : "microservice-vote"
 
 # The container name used for the tools container
-container-name-tools : "bx-dev-sample-microservice-vote-tools"
+container-name-tools : "bx-dev-microservice-vote-tools"
 
 # The project root in the run container to mount to host-path-run
 container-path-run : "/project"
@@ -18,7 +18,7 @@ dockerfile-run : "Dockerfile"
 dockerfile-tools : "Dockerfile-tools"
 
 # The name of image to create from dockerfile-run
-image-name-run : "sample-microservice-vote"
+image-name-run : "microservice-vote"
 # The name of image to create from dockerfile-tools
 image-name-tools : "bx-dev-java-maven-tools"
 
